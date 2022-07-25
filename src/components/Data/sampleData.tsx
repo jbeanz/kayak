@@ -1,5 +1,5 @@
 type DestinationData = {
-  [key: number]: Planet;
+  [key: string]: Planet;
 };
 type Planet = {
   name: string;
@@ -7,6 +7,9 @@ type Planet = {
   cost: number;
   currency: string;
 };
+
+export const NumOfPassengers = [1, 2, 3, 4];
+
 export const Destinations: DestinationData = {
   1: {
     name: "moon",

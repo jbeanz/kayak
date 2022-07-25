@@ -1,33 +1,12 @@
 import { useState, useEffect } from "react";
-import styled from "styled-components";
 
 interface Props {
   setReturnDate: React.Dispatch<React.SetStateAction<string>>;
   setDepartureDate: React.Dispatch<React.SetStateAction<string>>;
   submit: boolean;
 }
-const Input = styled.input`
-  border-radius: 0.5rem;
-  border: none;
-  outline: 0;
-  padding: 0.75em 1rem;
-`;
 
-const CalendarContainer = styled.div`
-  border-radius: 0.5rem;
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-items: center;
-  div {
-    width: 1px;
-    height: 1.3rem;
-    background-color: #0e89f4;
-  }
-`;
-
-const Calendar = ({ setReturnDate, setDepartureDate, submit }: Props) => {
+const Testimonials = ({ setReturnDate, setDepartureDate, submit }: Props) => {
   const [min, setMin] = useState<string>("");
   const [arrivalPlaceholder, setArrivalPlaceholder] = useState<string>("");
   const [departurePlaceholder, setDeparturePlaceholder] = useState<string>("");
@@ -64,23 +43,22 @@ const Calendar = ({ setReturnDate, setDepartureDate, submit }: Props) => {
   };
 
   return (
-    <CalendarContainer>
-      <Input
+    <div className="Testimonials">
+      <input
         type="date"
         defaultValue={departurePlaceholder}
         min={min}
         max={departureMax}
         onChange={handleDeparture}
-      ></Input>
-      <div className="dividing-line"></div>
-      <Input
+      ></input>
+      <input
         type="date"
         defaultValue={arrivalPlaceholder}
         min={arrivalMin}
         max={max}
         onChange={handleReturn}
-      ></Input>
-    </CalendarContainer>
+      ></input>
+    </div>
   );
 };
-export default Calendar;
+export default Testimonials;
