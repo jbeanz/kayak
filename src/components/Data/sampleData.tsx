@@ -48,5 +48,6 @@ export const Destinations: DestinationData = {
     currency: "USD",
   },
 };
+
 export default Destinations;
 export type { DestinationData };

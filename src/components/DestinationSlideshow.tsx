@@ -1,6 +1,6 @@
 import React from "react";
 import { Header } from "../StyledComponents";
-import DestinationCard from "./DestinationCard";
+import DestinationCard from "./DestinationCard2";
 // import logo from "./logo.svg";
 // import "./DestinationSlideshow.css";
 

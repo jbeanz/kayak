@@ -1,0 +1,28 @@
+{
+    "travelers": [
+        "Adults 18-64",
+        "Students over 18",
+        "Seniors 65+",
+        "Youths 12-17",
+        "Children 2-11",
+        "Toddlers in own seat under 2",
+        "Infants on lap under 2"
+    ],
+    "bags": [
+        "Carry-on bag",
+        "Checked bag"
+    ],
+    "trip": [
+        "One-way",
+        "Round-trip",
+        "Multi-city",
+        "Trip Builder"
+    ],
+    "flight": [
+        "Economy",
+        "Premium Economy",
+        "Business",
+        "First",
+        "Multiple"
+    ]
+}

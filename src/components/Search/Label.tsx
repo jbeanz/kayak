@@ -1,10 +1,14 @@
 import { firstLetterUppercase } from "./util";
-import { Row, Column } from "../../StyledComponents";
 import styled from "styled-components";
 
 interface Props {
   label: string;
 }
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+`;
 
 const Label = ({ label }: Props) => {
   const display = firstLetterUppercase(label);

@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FlexboxVertical, Header, Input } from "../../StyledComponents";
+import { Input } from "../../StyledComponents";
 import { LineWithText } from "../../StyledComponents";
 import DuneGoogleLogin from "./GoogleLogin";
 import styled from "styled-components";
-const FlexBox = styled(FlexboxVertical)`
-  background: white;
-  padding: 2rem 2rem 2rem;
-  border-radius: 1rem;
-`;
-const Section = styled.section`
-  padding: 1rem;
 
+const Row = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+`;
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   a,
   p {
     color: black;
     font-weight: bold;
-    font-size: 0.8em;
+    font-size: 0.8rem;
     padding: 0;
     margin: 0;
     text-align: center;
-    width: 10em;
+    width: 10rem;
   }
   a {
     color: #5138ee;
@@ -32,13 +32,9 @@ const Section = styled.section`
     background-color: white;
   }
 `;
-const Card = styled(FlexboxVertical)`
-  background-image: linear-gradient(to top, #e8198b 0%, #c7eafd 100%);
-  height: 100vh;
-  width: 100vw;
-  position: relative;
+const Title = styled.h1`
+  color: #0a061b;
 `;
-
 function SignIn() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [usernameInput, setUsernameInput] = useState("");
@@ -67,45 +63,41 @@ function SignIn() {
     setUsernameInput(e.target.value);
   };
   return (
-    <Card>
-      <FlexBox>
-        <Header className="card-title">Welcome to Dune Air</Header>
+    <div className="login">
+      <Column>
+        <Title>Welcome to Dune Air</Title>
         <DuneGoogleLogin />
         <LineWithText className="card-text">
           <span>or Sign in with Email</span>
         </LineWithText>
-        <section>
-          <form className="card-login-password-container">
-            <Input
-              type="text"
-              placeholder={"username"}
-              value={usernameInput}
-              onChange={handleChangeUsername}
-              required
-              autoComplete="username"
-            />
-            <Input
-              type="password"
-              placeholder={"password"}
-              value={passwordInput}
-              onChange={handleChangePassword}
-              required
-              autoComplete="current-password"
-            />
-            <button disabled={buttonDisabled} onClick={handleSubmit}>
-              Sign In
-            </button>
-          </form>
-        </section>
-        <Section>
-          <Link to="/reset-password">Forgot password?</Link>
-        </Section>
-        <Section>
+        <form className="card-login-password-container">
+          <Input
+            type="text"
+            placeholder={"username"}
+            value={usernameInput}
+            onChange={handleChangeUsername}
+            required
+            autoComplete="username"
+          />
+          <Input
+            type="password"
+            placeholder={"password"}
+            value={passwordInput}
+            onChange={handleChangePassword}
+            required
+            autoComplete="current-password"
+          />
+          <button disabled={buttonDisabled} onClick={handleSubmit}>
+            Sign In
+          </button>
+        </form>
+        <Link to="/reset-password">Forgot password?</Link>
+        <Row>
           <p>Not registered yet?</p>
-          <Link to="/reset-password">Create an Account</Link>
-        </Section>{" "}
-      </FlexBox>
-    </Card>
+          <Link to="/create-account">Create an Account</Link>
+        </Row>
+      </Column>
+    </div>
   );
 }
 export default SignIn;
